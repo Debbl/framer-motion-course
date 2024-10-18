@@ -4,13 +4,12 @@ import { useState } from "react";
 
 export default function BasicOfMotion() {
   const [isVisible, setIsVisible] = useState(true);
+
   return (
-    <div className="grid h-screen place-content-center justify-items-center gap-4">
+    <div className="flex h-screen flex-col items-center justify-center">
       <motion.button
-        className="rounded-md border p-2"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
         layout
+        className="my-2 rounded-md border p-2"
         onClick={() => setIsVisible(!isVisible)}
       >
         show/hidden
@@ -19,13 +18,12 @@ export default function BasicOfMotion() {
       <AnimatePresence mode="popLayout">
         {isVisible && (
           <motion.div
-            initial={{ scale: 0, rotate: "0deg", y: 0 }}
-            animate={{ scale: 1, rotate: "180deg", y: [0, 10, -10, -10, 0] }}
-            exit={{ scale: 0, rotate: "0deg", y: 0 }}
+            initial={{ scale: 0, rotate: "0deg" }}
+            animate={{ scale: 1, rotate: "180deg", y: [0, 100, -100, -100, 0] }}
+            exit={{ scale: 0, rotate: "0deg" }}
             transition={{
-              duration: 1,
-              type: "spring",
-              times: [0, 0.25, 0.5, 0.85, 1],
+              ease: "easeInOut",
+              times: [0, 0.2, 0.5, 0.7, 1],
             }}
             className="size-24 rounded-md bg-blue-600"
           ></motion.div>
