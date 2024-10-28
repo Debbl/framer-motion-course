@@ -8,6 +8,7 @@ export default function Home() {
       <Link href="/gestures">gestures</Link>
       <Link href="/animation-controls">animation-controls</Link>
       <Link href="/view-base-animations">view-base-animations</Link>
+      <Link href="/scroll-animations">scroll-animations</Link>
     </main>
   );
 }
